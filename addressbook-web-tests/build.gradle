@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.testng:testng:7.4.0'
+    compile 'org.seleniumhq.selenium:selenium-java:4.0.0-rc-2'
+}
+
+test {
+    useTestNG()
+}
