@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
@@ -75,4 +76,14 @@ public class GroupCreationTests {
       return false;
     }
   }
+
+  private boolean isElementPresent(By by) {
+    try {
+      wd.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
 }
