@@ -85,3 +85,5 @@ public class ApplicationManager {
     wd.findElement(By.name("selected[]")).click();
   }
 }
+
+
