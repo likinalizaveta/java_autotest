@@ -42,4 +42,7 @@ public class GroupHelper {
   public void selectGroup() {
     wd.findElement(By.name("selected[]")).click();
   }
+
+
+
 }
