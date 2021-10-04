@@ -32,9 +32,7 @@ public class ApplicationManager {
     wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
-  public void gotoGroupPage() {
-    groupHelper.returnToGroupPage();
-  }
+
 
   public void stop() {
     wd.quit();

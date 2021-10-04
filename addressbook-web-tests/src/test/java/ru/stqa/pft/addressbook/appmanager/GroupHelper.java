@@ -43,6 +43,8 @@ public class GroupHelper {
     wd.findElement(By.name("selected[]")).click();
   }
 
-
+  public void gotoGroupPage() {
+    returnToGroupPage();
+  }
 
 }
