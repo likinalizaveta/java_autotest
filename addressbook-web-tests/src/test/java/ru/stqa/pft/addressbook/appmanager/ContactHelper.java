@@ -39,6 +39,13 @@ public class ContactHelper extends HelperBase {
   }
 
   public void deleteContact() {
-    click(By.xpath("//form[2]/input[2]"));
+    click(By.xpath("//input[@value='Delete']"));
   }
+
+  public void acceptDeleteContact() {
+    wd.switchTo().alert().accept();
+
+  }
+
+
 }

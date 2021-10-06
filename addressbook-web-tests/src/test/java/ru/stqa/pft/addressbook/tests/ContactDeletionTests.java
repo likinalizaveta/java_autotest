@@ -8,8 +8,8 @@ public class ContactDeletionTests extends TestBase {
   public void testContactDeletion() {
     app.getNavigationHelper().returnToHomePage();
     app.getContactsHelper().selectContact();
-    app.getContactsHelper().initContactModification();
     app.getContactsHelper().deleteContact();
+    app.getContactsHelper().acceptDeleteContact();
   }
 
 }
