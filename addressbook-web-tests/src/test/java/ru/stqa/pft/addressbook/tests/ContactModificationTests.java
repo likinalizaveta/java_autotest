@@ -8,10 +8,14 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void testContactModification() {
     app.getNavigationHelper().returnToHomePage();
-    app.getContactsHelper().selectContact();
-    app.getContactsHelper().initContactModification();
-    app.getContactsHelper().fillNewContactForm(new ContactData("Jeremy", "Martinson", "455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA", "1-212-123 45 67", "jmartinson@yahoo.com", null), false);
-    app.getContactsHelper().submitContactModification();
+    if (! app.getContactHelper().isThereAContact()) {
+      app.getContactHelper().createContact(new ContactData("Jeremy", "Martinson", "455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA", "1-212-123 45 67", "jmartinson@yahoo.com", "test1"));
+    }
+    app.getNavigationHelper().returnToHomePage();
+    app.getContactHelper().selectContact();
+    app.getContactHelper().initContactModification();
+    app.getContactHelper().fillNewContactForm(new ContactData("Jeremy", "Martinson", "455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA", "1-212-123 45 67", "jmartinson@yahoo.com", null), false);
+    app.getContactHelper().submitContactModification();
     app.getNavigationHelper().returnToHomePage();
   }
 
