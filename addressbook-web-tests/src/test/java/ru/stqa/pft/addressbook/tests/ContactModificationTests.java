@@ -20,7 +20,7 @@ public class ContactModificationTests extends TestBase {
     app.getNavigationHelper().returnToHomePage();
     app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().initContactModification(before.size() - 1);
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Jeremy", "Martinson", "455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA", "1-212-123 45 67", "jmartinson@yahoo.com", null);
+    ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Jeremy1", "Martinson", "455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA", "1-212-123 45 67", "jmartinson@yahoo.com", null);
     app.getContactHelper().fillNewContactForm(contact, false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().returnToHomePage();
