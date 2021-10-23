@@ -9,7 +9,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToHomePage() {
+  public void homePage() {
     click(By.linkText("home"));
   }
 }
