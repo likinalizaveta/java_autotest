@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.Set;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -21,11 +19,24 @@ public class GroupCreationTests extends TestBase {
     app.group().fillGroupForm(group);
     app.group().submitGroupCreation();
     app.group().returnToGroupPage();
-    Set<GroupData> after = app.group().all();
-    assertThat(after.size(), equalTo(before.size() + 1));
-
+    assertThat(app.group().count(), equalTo(before.size() + 1));
+    Groups after = app.group().all();
     assertThat(after, equalTo(
             before.withAdded(group.withtId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+  }
+
+  @Test
+  public void testBadGroupCreation() throws Exception {
+    app.group().gotoGroupPage();
+    Groups before = app.group().all();
+    app.group().initGroupCreation();
+    GroupData group = new GroupData().withName("test'");
+    app.group().fillGroupForm(group);
+    app.group().submitGroupCreation();
+    app.group().returnToGroupPage();
+    assertThat(app.group().count(), equalTo(before.size()));
+    Groups after = app.group().all();
+    assertThat(after, equalTo(before));
   }
 
 }
