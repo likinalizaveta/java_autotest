@@ -10,13 +10,13 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactPhoneTests extends TestBase {
+public class ContactInfoTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().all().size() ==0) {
-      app.contact().create(new ContactData().withFirstname("Jeremy").withLastname("Martinson").withAddress("455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA").withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333").withEmail("jmartinson@yahoo.com").withGroup("test1"));
+      app.contact().create(new ContactData().withFirstname("Jeremy").withLastname("Martinson").withAddress("455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA").withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333").withEmail1("jmartinson@yahoo.com").withEmail2("2@yahoo.com").withEmail3("3@yahoo.com").withGroup("test1"));
     }
   }
 
@@ -27,17 +27,23 @@ public class ContactPhoneTests extends TestBase {
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
     assertThat(contact.getAllPhones(), equalTo(mergePhones (contactInfoFromEditForm)));
+    assertThat(contact.getAllEmail(), equalTo(mergeAllEmail (contactInfoFromEditForm)));
+    assertThat(contact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
+  }
+
+  private String mergeAllEmail(ContactData contact) {
+    return Arrays.asList(contact.getEmail1(), contact.getEmail2(), contact.getEmail3())
+            .stream().filter((s) -> ! s.equals(""))
+            .collect(Collectors.joining("\n"));
   }
 
   private String mergePhones(ContactData contact) {
     return Arrays.asList(contact.getPhoneHome(), contact.getMobilePhone(), contact.getWorkPhone())
             .stream().filter((s) -> ! s.equals(""))
-            .map(ContactPhoneTests::cleaned)
+            .map(ContactInfoTests::cleaned)
             .collect(Collectors.joining("\n"));
 
   }
-
-  
 
   public static String cleaned(String phone) {
       return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
