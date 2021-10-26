@@ -14,7 +14,10 @@ public class ContactModificationTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().all().size() ==0) {
-      app.contact().create(new ContactData().withFirstname("Jeremy").withLastname("Martinson").withAddress("455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA").withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333").withEmail1("jmartinson@yahoo.com").withGroup("test1"));
+      app.contact().create(new ContactData().withFirstname("Jeremy")
+              .withLastname("Martinson").withAddress("455 Larkspur Dr.\nCalifornia Springs, CA 92926\nUSA")
+              .withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333")
+              .withEmail("jmartinson@yahoo.com").withGroup("test1"));
     }
   }
 
@@ -23,7 +26,9 @@ public class ContactModificationTests extends TestBase {
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData()
-            .withId(modifiedContact.getId()).withFirstname("Jeremy").withLastname("Martinson").withAddress("455 Larkspur Dr. \nCalifornia Springs, CA 92926 \nUSA").withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333").withEmail1("jmartinson@yahoo.com").withGroup("test1");
+            .withId(modifiedContact.getId()).withFirstname("Jeremy").withLastname("Martinson")
+            .withAddress("455 Larkspur Dr.\nCalifornia Springs, CA 92926\nUSA").withPhoneHome("11111")
+            .withMobilePhone("22222").withWorkPhone("33333").withEmail("jmartinson@yahoo.com").withGroup("test1");
     app.goTo().homePage();
     app.contact().modify(contact);
     app.goTo().homePage();
