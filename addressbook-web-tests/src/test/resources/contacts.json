@@ -28,25 +28,5 @@
     "group": "test 2",
     "mobilePhone": "11111 2",
     "workPhone": "33333 2"
-  },
-  {
-    "firstname": "Matilda 3",
-    "lastname": "Morkovkina 3",
-    "address": "Nizhny Novgorod 3",
-    "homePhone": "22222 3",
-    "email": "email 3",
-    "group": "test 3",
-    "mobilePhone": "11111 3",
-    "workPhone": "33333 3"
-  },
-  {
-    "firstname": "Matilda 4",
-    "lastname": "Morkovkina 4",
-    "address": "Nizhny Novgorod 4",
-    "homePhone": "22222 4",
-    "email": "email 4",
-    "group": "test 4",
-    "mobilePhone": "11111 4",
-    "workPhone": "33333 4"
   }
 ]
