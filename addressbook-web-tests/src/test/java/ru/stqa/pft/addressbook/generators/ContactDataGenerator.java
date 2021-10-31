@@ -15,7 +15,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsDataGenerator {
+public class ContactDataGenerator {
 
   @Parameter(names = "-c", description = "Group count")
   public int count;
@@ -27,7 +27,7 @@ public class ContactsDataGenerator {
   public String format;
 
   public static void main(String[] args) throws IOException {
-    ContactsDataGenerator generator = new ContactsDataGenerator();
+    ContactDataGenerator generator = new ContactDataGenerator();
     JCommander jCommander = new JCommander(generator);
     try {
       jCommander.parse(args);
