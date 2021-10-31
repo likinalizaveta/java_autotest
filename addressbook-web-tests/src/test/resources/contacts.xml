@@ -1,6 +1,5 @@
 <list>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
+  <contact>
     <firstname>Matilda 0</firstname>
     <lastname>Morkovkina 0</lastname>
     <address>Nizhny Novgorod 0</address>
@@ -9,9 +8,8 @@
     <group>test 0</group>
     <mobilePhone>11111 0</mobilePhone>
     <workPhone>33333 0</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
+  </contact>
+  <contact>
     <firstname>Matilda 1</firstname>
     <lastname>Morkovkina 1</lastname>
     <address>Nizhny Novgorod 1</address>
@@ -20,9 +18,8 @@
     <group>test 1</group>
     <mobilePhone>11111 1</mobilePhone>
     <workPhone>33333 1</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
+  </contact>
+  <contact>
     <firstname>Matilda 2</firstname>
     <lastname>Morkovkina 2</lastname>
     <address>Nizhny Novgorod 2</address>
@@ -31,82 +28,5 @@
     <group>test 2</group>
     <mobilePhone>11111 2</mobilePhone>
     <workPhone>33333 2</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 3</firstname>
-    <lastname>Morkovkina 3</lastname>
-    <address>Nizhny Novgorod 3</address>
-    <homePhone>22222 3</homePhone>
-    <email>email 3</email>
-    <group>test 3</group>
-    <mobilePhone>11111 3</mobilePhone>
-    <workPhone>33333 3</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 4</firstname>
-    <lastname>Morkovkina 4</lastname>
-    <address>Nizhny Novgorod 4</address>
-    <homePhone>22222 4</homePhone>
-    <email>email 4</email>
-    <group>test 4</group>
-    <mobilePhone>11111 4</mobilePhone>
-    <workPhone>33333 4</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 5</firstname>
-    <lastname>Morkovkina 5</lastname>
-    <address>Nizhny Novgorod 5</address>
-    <homePhone>22222 5</homePhone>
-    <email>email 5</email>
-    <group>test 5</group>
-    <mobilePhone>11111 5</mobilePhone>
-    <workPhone>33333 5</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 6</firstname>
-    <lastname>Morkovkina 6</lastname>
-    <address>Nizhny Novgorod 6</address>
-    <homePhone>22222 6</homePhone>
-    <email>email 6</email>
-    <group>test 6</group>
-    <mobilePhone>11111 6</mobilePhone>
-    <workPhone>33333 6</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 7</firstname>
-    <lastname>Morkovkina 7</lastname>
-    <address>Nizhny Novgorod 7</address>
-    <homePhone>22222 7</homePhone>
-    <email>email 7</email>
-    <group>test 7</group>
-    <mobilePhone>11111 7</mobilePhone>
-    <workPhone>33333 7</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 8</firstname>
-    <lastname>Morkovkina 8</lastname>
-    <address>Nizhny Novgorod 8</address>
-    <homePhone>22222 8</homePhone>
-    <email>email 8</email>
-    <group>test 8</group>
-    <mobilePhone>11111 8</mobilePhone>
-    <workPhone>33333 8</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
-    <firstname>Matilda 9</firstname>
-    <lastname>Morkovkina 9</lastname>
-    <address>Nizhny Novgorod 9</address>
-    <homePhone>22222 9</homePhone>
-    <email>email 9</email>
-    <group>test 9</group>
-    <mobilePhone>11111 9</mobilePhone>
-    <workPhone>33333 9</workPhone>
-  </ru.stqa.pft.addressbook.model.ContactData>
+  </contact>
 </list>
