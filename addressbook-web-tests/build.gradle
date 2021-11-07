@@ -11,6 +11,7 @@ dependencies {
     compile 'com.beust:jcommander:1.81'
     compile 'com.thoughtworks.xstream:xstream:1.4.8'
     compile 'com.google.code.gson:gson:2.6.1'
+    compile 'mysql:mysql-connector-java:8.0.27'
 }
 
 task testGroups(type: Test) {
@@ -34,5 +35,11 @@ task testContacts(type: Test) {
     }
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
+    }
+}
+
+task testDb(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-db.xml'
     }
 }
