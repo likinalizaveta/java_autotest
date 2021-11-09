@@ -19,7 +19,7 @@ public class ContactInfoTests extends TestBase {
       app.contact().create(new ContactData().withFirstname("Jeremy").withLastname("Martinson")
               .withAddress("455 Larkspur Dr.\nCalifornia Springs, CA 92926\nUSA").withPhoneHome("11111")
               .withMobilePhone("22222").withWorkPhone("33333").withEmail("jmartinson@yahoo.com")
-              .withEmail2("2@yahoo.com").withEmail3("3@yahoo.com").withGroup("test1"));
+              .withEmail2("2@yahoo.com").withEmail3("3@yahoo.com"));
     }
   }
 

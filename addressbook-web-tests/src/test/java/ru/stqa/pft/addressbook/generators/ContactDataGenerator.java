@@ -55,8 +55,8 @@ public class ContactDataGenerator {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
     for (ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstname(), contact.getLastname(), contact.getAddress(),
-              contact.getMobilePhone(), contact.getPhoneHome(), contact.getWorkPhone(), contact.getEmail(), contact.getGroup()));
+      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstname(), contact.getLastname(), contact.getAddress(),
+              contact.getMobilePhone(), contact.getPhoneHome(), contact.getWorkPhone(), contact.getEmail(), contact.getEmail2(), contact.getEmail3(), contact.getGroups()));
     }
     writer.close();
   }
@@ -84,7 +84,8 @@ public class ContactDataGenerator {
       contacts.add(new ContactData().withFirstname(String.format("Matilda %s", i)).withLastname(String.format("Morkovkina %s", i))
               .withAddress(String.format("Nizhny Novgorod %s", i)).withMobilePhone(String.format("11111 %s", i))
               .withPhoneHome(String.format("22222 %s", i)).withWorkPhone(String.format("33333 %s", i))
-              .withEmail(String.format("email %s", i)).withGroup(String.format("test %s", i)));
+              .withEmail(String.format("email %s", i)).withEmail2(String.format("email2 %s", i))
+              .withEmail3(String.format("email3 %s", i)));
     }
     return contacts;
   }

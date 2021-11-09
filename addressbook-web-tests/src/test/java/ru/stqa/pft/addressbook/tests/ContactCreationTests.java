@@ -3,10 +3,13 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.openqa.selenium.json.TypeToken;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -52,9 +55,18 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
+  @BeforeMethod
+  public void ensurePreconditions () {
+    if (app.db().groups().size() == 0) {
+      app.group().gotoGroupPage();
+      app.group().create(new GroupData().withName("test1"));
+    }
+  }
+
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
-    File photo = new File("src/test/resources/image.png");
+      File photo = new File("src/test/resources/image.png");
+      Groups groups = app.db().groups();
       app.goTo().homePage();
       Contacts before = app.db().contacts();
       app.contact().gotoAddNewContactPage();
@@ -73,8 +85,11 @@ public class ContactCreationTests extends TestBase {
     app.goTo().homePage();
     Contacts before = app.db().contacts();
     app.contact().gotoAddNewContactPage();
-    ContactData contact = new ContactData().withFirstname("Jeremy'").withLastname("Martinson").withAddress("455 Larkspur Dr.\nCalifornia Springs, CA 92926\nUSA")
-            .withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333").withEmail("jmartinson@yahoo.com").withGroup("test1");
+    ContactData contact = new ContactData().withFirstname("Jeremy'").withLastname("Martinson")
+            .withAddress("455 Larkspur Dr.\nCalifornia Springs, CA 92926\nUSA")
+            .withPhoneHome("11111").withMobilePhone("22222").withWorkPhone("33333")
+            .withEmail("jmartinson@yahoo.com").withEmail2("jmartinson2@yahoo.com")
+            .withEmail3("jmartinson3@yahoo.com");
     app.contact().fillNewContactForm(contact, true);
     app.contact().submitNewContactCreation();
     app.goTo().homePage();
