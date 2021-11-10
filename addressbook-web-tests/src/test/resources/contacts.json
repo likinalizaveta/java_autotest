@@ -5,7 +5,6 @@
     "address": "Nizhny Novgorod 0",
     "homePhone": "22222 0",
     "email": "email 0",
-    "group": "test 0",
     "mobilePhone": "11111 0",
     "workPhone": "33333 0"
   },
@@ -15,18 +14,7 @@
     "address": "Nizhny Novgorod 1",
     "homePhone": "22222 1",
     "email": "email 1",
-    "group": "test 1",
     "mobilePhone": "11111 1",
     "workPhone": "33333 1"
-  },
-  {
-    "firstname": "Matilda 2",
-    "lastname": "Morkovkina 2",
-    "address": "Nizhny Novgorod 2",
-    "homePhone": "22222 2",
-    "email": "email 2",
-    "group": "test 2",
-    "mobilePhone": "11111 2",
-    "workPhone": "33333 2"
   }
 ]

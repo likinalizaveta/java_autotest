@@ -63,18 +63,17 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validContactsFromJson")
+  @Test(dataProvider = "validContactsFromXml")
   public void testContactCreation(ContactData contact) throws Exception {
       File photo = new File("src/test/resources/image.png");
       Groups groups = app.db().groups();
-      app.goTo().homePage();
       Contacts before = app.db().contacts();
       app.contact().gotoAddNewContactPage();
-      app.contact().fillNewContactForm(contact, true);
+      app.contact().fillNewContactForm(contact.inGroup(groups.iterator().next()), true);
       app.contact().submitNewContactCreation();
       app.goTo().homePage();
-      assertThat(app.contact().count(), equalTo(before.size() + 1));
       Contacts after = app.db().contacts();
+      assertThat(after.size(), equalTo(before.size() + 1));
       assertThat(after, equalTo(
               before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
       verifyContactListInUI();

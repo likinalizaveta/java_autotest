@@ -5,9 +5,11 @@
     <address>Nizhny Novgorod 0</address>
     <homePhone>22222 0</homePhone>
     <email>email 0</email>
-    <group>test 0</group>
+    <email2>email2 0</email2>
+    <email3>email3 0</email3>
     <mobilePhone>11111 0</mobilePhone>
     <workPhone>33333 0</workPhone>
+    <groups/>
   </contact>
   <contact>
     <firstname>Matilda 1</firstname>
@@ -15,18 +17,10 @@
     <address>Nizhny Novgorod 1</address>
     <homePhone>22222 1</homePhone>
     <email>email 1</email>
-    <group>test 1</group>
+    <email2>email2 1</email2>
+    <email3>email3 1</email3>
     <mobilePhone>11111 1</mobilePhone>
     <workPhone>33333 1</workPhone>
-  </contact>
-  <contact>
-    <firstname>Matilda 2</firstname>
-    <lastname>Morkovkina 2</lastname>
-    <address>Nizhny Novgorod 2</address>
-    <homePhone>22222 2</homePhone>
-    <email>email 2</email>
-    <group>test 2</group>
-    <mobilePhone>11111 2</mobilePhone>
-    <workPhone>33333 2</workPhone>
+    <groups/>
   </contact>
 </list>
