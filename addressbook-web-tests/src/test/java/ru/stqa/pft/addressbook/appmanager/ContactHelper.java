@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.*;
 
@@ -53,6 +54,10 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
+  public void selectGroupById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -89,6 +94,10 @@ public class ContactHelper extends HelperBase {
   public void acceptDeleteContact() {
     wd.switchTo().alert().accept();
 
+  }
+
+  private void confirmAddToGroup() {
+    wd.findElement(By.name("add")).click();
   }
 
   public void create(ContactData contact) {
@@ -133,6 +142,16 @@ public class ContactHelper extends HelperBase {
               .withAllPhones(allPhones).withAddress(address).withAllEmail(allEmail));
     }
     return contacts;
+  }
+
+  public void addToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    selectGroupInList(group.getName());
+    confirmAddToGroup();
+  }
+
+  private void selectGroupInList(String groupName) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
   }
 
 }
