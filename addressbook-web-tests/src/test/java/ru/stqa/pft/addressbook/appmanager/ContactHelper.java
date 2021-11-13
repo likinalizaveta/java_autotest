@@ -96,10 +96,6 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  private void confirmAddToGroup() {
-    wd.findElement(By.name("add")).click();
-  }
-
   public void create(ContactData contact) {
     gotoAddNewContactPage();
     fillNewContactForm(contact,true);
@@ -144,6 +140,10 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 
+  private void confirmAddToGroup() {
+    wd.findElement(By.name("add")).click();
+  }
+
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
     selectGroupInList(group.getName());
@@ -154,4 +154,21 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
   }
 
+  public void deleteFromGroup(ContactData contact, GroupData group) {
+    sortContactFromGroup(group.getId());
+    selectContactById(contact.getId());
+    confirmDeleteFromGroup();
+  }
+
+  private void sortContactFromGroup(int id) {
+    click(By.cssSelector("select[name=\"group\"] > option[value='" + id + "']"));
+  }
+
+  private void confirmDeleteFromGroup() {
+    click(By.name("remove"));
+  }
+
+  public void selectDisplayGroup(String name) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(name);
+  }
 }

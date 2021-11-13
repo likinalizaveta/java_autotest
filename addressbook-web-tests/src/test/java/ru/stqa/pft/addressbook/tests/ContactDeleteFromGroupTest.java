@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ContactAddToGroupTests extends TestBase {
+public class ContactDeleteFromGroupTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -27,26 +27,34 @@ public class ContactAddToGroupTests extends TestBase {
       app.group().gotoGroupPage();
       app.group().create(new GroupData().withName("test1"));
     }
+    if (app.db().contacts().iterator().next().getGroups().size() == 0) {
+      Groups groups = app.db().groups();
+      GroupData selectedGroup = groups.iterator().next();
+      Contacts contacts = app.db().contacts();
+      ContactData selectedContact = contacts.iterator().next();
+      app.contact().addToGroup(selectedContact, selectedGroup);
+    }
   }
 
   @Test
-  public void testContactAddToGroup() {
+  public void testContactDeleteFromGroup () {
     Contacts beforeContact = app.db().contacts();
     Groups beforeGroups = app.db().groups();
     ContactData selectedContact = beforeContact.iterator().next();
     GroupData selectedGroup = beforeGroups.iterator().next();
     app.goTo().homePage();
-    if (!selectedContact.getGroups().isEmpty() && selectedContact.getGroups().contains(selectedGroup)) {
-      app.contact().deleteFromGroup(selectedContact, selectedGroup);
-      assertThat(selectedContact.getGroups().withoutAdded(selectedGroup), equalTo(app.db().contacts().stream().
+    if (selectedContact.getGroups().isEmpty() || !selectedContact.getGroups().contains(selectedGroup)) {
+      app.contact().selectDisplayGroup("[all]");
+      app.contact().addToGroup(selectedContact, selectedGroup);
+      assertThat(selectedContact.getGroups().withAdded(selectedGroup), equalTo(app.db().contacts().stream().
               filter((c) -> c.getId() == selectedContact.getId()).collect(Collectors.toList()).get(0).getGroups()));
       app.goTo().homePage();
     }
-    app.contact().addToGroup(selectedContact, selectedGroup);
+    app.contact().deleteFromGroup(selectedContact, selectedGroup);
     Contacts afterContact = app.db().contacts();
-    assertThat(afterContact.iterator().next().getGroups(), equalTo(beforeContact.iterator().next().getGroups().withAdded(selectedGroup)));
+    assertThat(selectedContact.getGroups().withoutAdded(selectedGroup), equalTo(app.db().contacts().stream().
+            filter((c) -> c.getId() == selectedContact.getId()).collect(Collectors.toList()).get(0).getGroups()));
     verifyContactListInUI();
   }
-
 
 }

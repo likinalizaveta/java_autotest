@@ -7,6 +7,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -171,9 +172,7 @@ public class ContactData {
   public ContactData withEmail3(String email3) {
     this.email3 = email3;
     return this;
-
   }
-
 
   public int getId() {
     return id;
@@ -236,4 +235,11 @@ public class ContactData {
     groups.add(group);
     return this;
   }
+
+  private Object readResolve() {
+    groups = new HashSet<>();
+    return this;
+  }
+
+
 }
