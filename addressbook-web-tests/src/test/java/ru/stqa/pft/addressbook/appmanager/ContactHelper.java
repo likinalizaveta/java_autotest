@@ -12,8 +12,10 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import java.util.*;
 
 public class ContactHelper extends HelperBase {
+//
+//  private boolean creation;
 
-  private boolean creation;
+  private Contacts contactCache = null;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -24,7 +26,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void fillNewContactForm(ContactData contactData, boolean creation) {
-    this.creation = creation;
+//    this.creation = creation;
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
@@ -96,9 +98,9 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void create(ContactData contact) {
+  public void create(ContactData contactData) {
     gotoAddNewContactPage();
-    fillNewContactForm(contact,true);
+    fillNewContactForm(contactData,true);
     submitNewContactCreation();
   }
 
