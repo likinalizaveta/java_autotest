@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.thegoate:testng:0.15.8.202108192327'
+}
