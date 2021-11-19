@@ -52,6 +52,10 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
+  public void groupPage(GroupData group) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+  }
+
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
@@ -156,8 +160,7 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
   }
 
-  public void deleteFromGroup(ContactData contact, GroupData group) {
-    sortContactFromGroup(group.getId());
+  public void deleteFromGroup(ContactData contact) {
     selectContactById(contact.getId());
     confirmDeleteFromGroup();
   }
@@ -168,6 +171,9 @@ public class ContactHelper extends HelperBase {
 
   private void confirmDeleteFromGroup() {
     click(By.name("remove"));
+//    wd.findElement(By.name("remove")).click();
+//    click(By.xpath("//input[@name='remove']"));
+//    click(By.xpath("//div[3]/input"));
   }
 
   public void selectDisplayGroup(String name) {
