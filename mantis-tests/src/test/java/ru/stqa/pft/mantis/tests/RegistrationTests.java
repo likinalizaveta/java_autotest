@@ -8,6 +8,7 @@ import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,12 +22,13 @@ public class RegistrationTests extends TestBase {
   }
 
   @Test
-  public void testRegistration() throws MessagingException, IOException {
+  public void testRegistration() throws MessagingException, IOException, ServiceException {
     long now = System.currentTimeMillis();
     String user = String.format("user%s", now);
     String password = "password";
     String email = String.format("user%s@localhost.localdomain", now);
 //    app.james().createUser(user, password);
+    skipIfNotFixed(0000005);
     app.registration().start(user, email);
     List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
 //    List<MailMessage> mailMessages = app.james().waitForMail(user, password, 60000);

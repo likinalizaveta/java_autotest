@@ -8,6 +8,7 @@ import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.UserData;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,12 +21,13 @@ public class ChangePasswordTests extends TestBase {
   }
 
   @Test
-  public void passwordResetTest() throws MessagingException, IOException {
+  public void passwordResetTest() throws MessagingException, IOException, ServiceException {
     app.registration().login(new UserData().withLogin("administrator").withPassword("root"));
     UserData user = app.db().users()
             .stream().filter((u) -> (!u.getLogin().equals("administrator")))
             .collect(Collectors.toList()).iterator().next();
 //    app.james().drainEmail(user.getLogin(), "password");
+    skipIfNotFixed(0000005);
     app.registration().pressResetByAdmin(user);
     List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
 //    List<MailMessage> mailMessages = app.james().waitForMail(user.getLogin(), "password", 60000);
