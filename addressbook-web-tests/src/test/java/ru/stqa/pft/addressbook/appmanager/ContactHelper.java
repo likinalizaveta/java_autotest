@@ -152,12 +152,12 @@ public class ContactHelper extends HelperBase {
 
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    selectGroupInList(group.getName());
+    selectGroupInList(group);
     confirmAddToGroup();
   }
 
-  private void selectGroupInList(String groupName) {
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
+  private void selectGroupInList(GroupData group) {
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(group.getId()));
   }
 
   public void deleteFromGroup(ContactData contact) {
