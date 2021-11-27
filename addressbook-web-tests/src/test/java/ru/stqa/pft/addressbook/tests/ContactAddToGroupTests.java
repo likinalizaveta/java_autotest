@@ -36,16 +36,16 @@ public class ContactAddToGroupTests extends TestBase {
     GroupData group = selectGroupToTest(contact);
 
     Groups contactGroupsBefore = app.db().contactById(contact.getId()).getGroups();
-    Contacts groupContactsBefore = app.db().contactsInGroupByName(group.getName());
+    Contacts groupContactsBefore = app.db().contactsInGroupById(group.getId());
 
     app.goTo().homePage();
     app.contact().addToGroup(contact, group);
 
     Groups contactGroupsAfter = app.db().contactById(contact.getId()).getGroups();
-    Contacts groupContactsAfter = app.db().contactsInGroupByName(group.getName());
+    Contacts groupContactsAfter = app.db().contactsInGroupById(group.getId());
 
     assertEquals(contactGroupsAfter.size(), contactGroupsBefore.size() + 1);
-    assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withAdded(app.db().groupByName(group.getName()))));
+    assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withAdded(app.db().groupById(group.getId()))));
     assertEquals(groupContactsAfter.size(), groupContactsBefore.size() + 1);
     assertThat(groupContactsAfter, equalTo(groupContactsBefore.withAdded(app.db().contactById(contact.getId()))));
   }

@@ -42,9 +42,9 @@ public class DbHelper {
     return new Contacts(result);
   }
 
-  public Contacts contactsInGroupByName(String groupName) {
+  public Contacts contactsInGroupById(Integer groupId) {
     Contacts actualContactsInGroup = new Contacts();
-    Contacts allContactsInGroup = groupByName(groupName).getContacts();
+    Contacts allContactsInGroup = groupById(groupId).getContacts();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
 
@@ -62,10 +62,10 @@ public class DbHelper {
     return actualContactsInGroup;
   }
 
-  public GroupData groupByName(String groupName) {
+  public GroupData groupById(Integer groupId) {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<GroupData> result = session.createQuery("from GroupData where group_name = '" + groupName + "'").list();
+    List<GroupData> result = session.createQuery("from GroupData where group_id = '" + groupId + "'").list();
     session.getTransaction().commit();
     session.close();
     return result.get(0);
