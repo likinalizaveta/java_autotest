@@ -9,3 +9,7 @@ repositories {
 dependencies {
     implementation 'com.thegoate:testng:0.15.8.202108192327'
 }
+
+test {
+    useTestNG()
+}
