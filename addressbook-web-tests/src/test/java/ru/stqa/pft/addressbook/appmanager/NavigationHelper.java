@@ -19,8 +19,8 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void groupPage(GroupData group) {
-    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+  public void groupPage(int id) {
+    click(By.cssSelector("select[name=\"group\"] > option[value='" + id + "']"));
   }
 
 }
